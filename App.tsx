@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Fourth from './Fourth';
 import Second from './Second';
 import Third from './Third';
 
@@ -10,8 +11,9 @@ export default function App() {
       width: "100%",
       height: "100%"
     }}>
-{/*       <Second />
- */}      <Third />
+      {/* <Second />
+      <Third /> */}
+      <Fourth />
       <StatusBar style="auto" />
     </View>
   )
