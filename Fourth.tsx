@@ -14,7 +14,7 @@ const Fourth = () => {
             <View style={[styles.box, {
                 position: 'absolute',
                 height: 50, width: 30, backgroundColor: 'red',
-                left: 80
+                left: 615
             }]} />
             <View style={[{ margin: 50, height: "100%", flexDirection: 'column', justifyContent: "center" }]}>
                 <View style={[styles.box, { height: 200, backgroundColor: 'green' }]} />

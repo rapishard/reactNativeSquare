@@ -1,67 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Fourth from './Fourth';
-import Second from './Second';
-import Third from './Third';
-
-export default function App() {
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, View, FlatList} from 'react-native';
+import Header from './src/components/Header';
+import AddItem, {IItem} from './src/components/AddItem';
+import Item from './src/components/Item';
+const App = () => {
+  const [shoppingList, setShoppingList] = useState<IItem[]>([]);
   return (
-    <View style={{
-      width: "100%",
-      height: "100%"
-    }}>
-      {/* <Second />
-      <Third /> */}
-      <Fourth />
-      <StatusBar style="auto" />
-    </View>
-  )
-}
-
+    <SafeAreaView style={styles.container}>
+      <Header title="Shopping List" />
+      <View style={styles.contentWrapper}>
+        <AddItem
+          setShoppingList={setShoppingList}
+          shoppingList={shoppingList}
+        />
+        <FlatList
+          data={shoppingList}
+          keyExtractor={(item, index) => `${item.item}-${index}`}
+          renderItem={({item}) => (
+            <Item item={item.item} quantity={item.quantity} />
+          )}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
 const styles = StyleSheet.create({
-  boxH: {
-    backgroundColor: 'blue',
-    height: 50,
-    width: 50,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    margin: 80
-  },
-  box3: {
-    backgroundColor: 'green',
-    height: 50,
-    width: 50,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    margin: 80
-
-  },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    backgroundColor: '#e8e7e3',
   },
-  containerR: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row-reverse',
-    justifyContent: 'space-between',
+  contentWrapper: {
+    padding: 20,
   },
-
-  row: {
-    flexDirection: 'row-reverse',
-    justifyContent: 'flex-end',
-
-  },
-  column: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-
-  },
-  columnR: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-
-  }
 });
+export default App;
