@@ -1,25 +1,13 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View, FlatList} from 'react-native';
-import Header from './src/components/Header';
-import AddItem, {IItem} from './src/components/AddItem';
-import Item from './src/components/Item';
+import Five from './src/five';
+
+
 const App = () => {
-  const [shoppingList, setShoppingList] = useState<IItem[]>([]);
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Shopping List" />
       <View style={styles.contentWrapper}>
-        <AddItem
-          setShoppingList={setShoppingList}
-          shoppingList={shoppingList}
-        />
-        <FlatList
-          data={shoppingList}
-          keyExtractor={(item, index) => `${item.item}-${index}`}
-          renderItem={({item}) => (
-            <Item item={item.item} quantity={item.quantity} />
-          )}
-        />
+       <Five />
       </View>
     </SafeAreaView>
   );
@@ -33,4 +21,4 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
-export default App;
+export default App; 

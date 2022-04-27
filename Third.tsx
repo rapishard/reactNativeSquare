@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const Third = () => {
 
-/*     const [cardwidth, setCardwidth] = useState<number>()
- */    return (
+   return (
         <View style={styles.container}>
             <View style={[styles.card, {width:'60%'} ]}>
                 <View style={[styles.round]} />
